@@ -1,0 +1,35 @@
+{
+    "name": "pavex/website",
+    "description": "Pavex website controller, router and presenter engine. PHP 8.0+.",
+    "type": "library",
+    "version": "3.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Machacek",
+            "email": "pavex@ines.cz"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "pavex/url": "^2.0",
+        "pavex/http": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pavex\\Website\\": "src/Website/",
+            "Pavex\\Bridges\\": "src/Bridges/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pavex\\Website\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

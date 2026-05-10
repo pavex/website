@@ -1,0 +1,1 @@
+<layout>[<?= $children() ?>]</layout>
