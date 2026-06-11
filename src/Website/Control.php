@@ -161,7 +161,7 @@ class Control
 
         // Setup extra headers
         if (static::$xGeneratorBy) {
-            $this->httpResponse->setHeader('X-Generator-By', 'Pavex');
+            $this->httpResponse->setHeader('X-Generator-By', 'pavex/website');
         }
         if (static::$xGeneratorTimer) {
             $this->httpResponse->setHeader('X-Generator-Timer', sprintf('%0.3f s', $time));
