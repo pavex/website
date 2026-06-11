@@ -129,7 +129,6 @@ class Control
 
         if ($e instanceof HttpExceptionInterface) {
             $this->httpResponse->setStatus($e->getStatusCode());
-            $this->httpResponse->send();
             return;
         }
     }
