@@ -52,7 +52,7 @@ class OutputRule implements OutputRuleInterface
      * Returns the URL for the given presenter class name, or null when this rule
      * does not handle that presenter.
      */
-    public function getUrl(string $presenter, array $args = [], mixed $options = null): ?string
+    public function getUrl(string $presenter, array $args = []): ?string
     {
         if ($this->presenter !== $presenter) {
             return null;

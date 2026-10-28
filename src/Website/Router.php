@@ -69,10 +69,10 @@ final class Router implements RouterInterface
     }
 
 
-    public function getUrl(string $presenter, array $args = [], mixed $options = null): ?string
+    public function getUrl(string $presenter, array $args = []): ?string
     {
         foreach ($this->outputRules as $rule) {
-            $url = $rule->getUrl($presenter, $args, $options);
+            $url = $rule->getUrl($presenter, $args);
 
             foreach ($this->onOutputRule as $callback) {
                 $callback($this, $rule, $presenter, $args, $url);
@@ -118,7 +118,7 @@ final class Router implements RouterInterface
      *
      * @throws InvalidArgumentException when no output rule matches or input is invalid
      */
-    public function getPresenterLink(PresenterInterface|string $presenter, array $params = [], mixed $options = null): string
+    public function getPresenterLink(PresenterInterface|string $presenter, array $params = []): string
     {
         if (!is_subclass_of($presenter, PresenterInterface::class)) {
             if (is_string($presenter)) {
@@ -130,7 +130,7 @@ final class Router implements RouterInterface
         $class = $presenter instanceof PresenterInterface ? get_class($presenter) : $presenter;
         $baseArgs = $presenter instanceof PresenterInterface ? $presenter->getArgs() : [];
         $args = $this->getPresenterArgs($class, array_merge($baseArgs, $params));
-        $url = $this->getUrl($class, $args, $options);
+        $url = $this->getUrl($class, $args);
 
         if ($url !== null) {
             return $url;

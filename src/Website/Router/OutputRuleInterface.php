@@ -16,5 +16,5 @@ namespace Pavex\Website\Router;
 
 interface OutputRuleInterface
 {
-    public function getUrl(string $presenter, array $args = [], mixed $options = null): ?string;
+    public function getUrl(string $presenter, array $args = []): ?string;
 }
