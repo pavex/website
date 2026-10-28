@@ -198,21 +198,4 @@ class ControlTest extends TestCase
     }
 
 
-    // -- getHttpRequest / getHttpResponse accessors --------------------------
-
-    public function testGetHttpRequestReturnsInjectedRequest(): void
-    {
-        $control = $this->makeControl();
-        $this->assertSame($this->request, $control->getHttpRequest());
-    }
-
-
-    public function testGetHttpResponseReturnsInjectedResponse(): void
-    {
-        $response = new Response();
-        $control = $this->makeControl(null, $response);
-        $this->assertSame($response, $control->getHttpResponse());
-    }
-
-
 }

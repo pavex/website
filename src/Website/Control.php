@@ -42,25 +42,30 @@ class Control
     private HttpResponse $httpResponse;
 
 
-    public function __construct(RouterInterface $router,
-        ?HttpRequest $request = null, ?HttpResponse $response = null)
+    /**
+     * Request and response are required: Control never creates its own, so it always
+     * shares the same instances as the ApplicationContainer that composes it.
+     */
+    public function __construct(RouterInterface $router, HttpRequest $request, HttpResponse $response)
     {
         $this->router = $router;
-        $this->httpRequest = $request ?? HttpRequest::fromGlobals();
-        $this->httpResponse = $response ?? new HttpResponse();
+        $this->httpRequest = $request;
+        $this->httpResponse = $response;
     }
 
 
-    public function getHttpRequest(): HttpRequest
-    {
-        return $this->httpRequest;
-    }
-
-
-    public function getHttpResponse(): HttpResponse
-    {
-        return $this->httpResponse;
-    }
+    // Request/response are owned by the ApplicationContainer; use its getters instead.
+    //
+    // public function getHttpRequest(): HttpRequest
+    // {
+    //     return $this->httpRequest;
+    // }
+    //
+    //
+    // public function getHttpResponse(): HttpResponse
+    // {
+    //     return $this->httpResponse;
+    // }
 
 
     /**

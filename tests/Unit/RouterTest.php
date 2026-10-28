@@ -76,7 +76,7 @@ class RouterTest extends TestCase
 
     public function testInputRuleMatchesUrl(): void
     {
-        $rule = new InputRule('/^https?:\/\/example\.com\/$/i',
+        $rule = new InputRule('/^\/$/',
             fn() => new ActionHandler(fn() => new RouterFixturePresenter(), [])
         );
 
